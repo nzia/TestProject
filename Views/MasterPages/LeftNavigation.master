@@ -1,0 +1,23 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Views/MasterPages/Site.master" AutoEventWireup="false" CodeBehind="LeftNavigation.master.cs" Inherits="EPiServer.Templates.Alloy.Views.MasterPages.LeftNavigation" %>
+<%@ Register tagPrefix="UC" tagName="SubNavigation" src="~/Views/Shared/SubNavigation.ascx" %>
+
+<asp:Content ContentPlaceHolderID="Content" runat="server">
+    
+    <div class="row">
+        <div class="span4">
+            <div class="row">
+                <div class="span4">
+            	    <UC:SubNavigation runat="server" />
+                    <asp:ContentPlaceHolder ID="RelatedContent" runat="server">
+                    
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+               
+        <div class="span8">        	
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </div>
+    </div>
+
+</asp:Content>

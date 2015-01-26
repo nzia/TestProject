@@ -1,0 +1,6 @@
+﻿Note that the Web.config file in the root should not be modified directly as it
+will be overwritten every time the web application is built (because of config transforms).
+
+Configuration changes should be done in the [Configuration] folder.
+
+See the readme file in the [Configuration] folder for details.

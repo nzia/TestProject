@@ -1,0 +1,22 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Views/MasterPages/Site.master" AutoEventWireup="false" CodeBehind="TwoPlusOne.master.cs" Inherits="EPiServer.Templates.Alloy.Views.MasterPages.TwoPlusOne" %>
+
+<asp:Content ContentPlaceHolderID="Content" runat="server">
+    
+    <div class="row">
+        
+        <div class="span8">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />       
+        </div>
+
+        <div class="span4">
+            <asp:ContentPlaceHolder ID="RelatedContent" runat="server">
+                
+                <EPiServer:Property PropertyName="RelatedContentArea" CssClass="row" runat="server">
+                    <RenderSettings Tag="span4" />
+                </EPiServer:Property>
+
+            </asp:ContentPlaceHolder>
+        </div> 
+    </div>
+
+</asp:Content>

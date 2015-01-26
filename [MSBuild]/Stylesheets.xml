@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/MsBuild/2003">
+
+  <!-- Minifies and/or concatenates CSS files into one single file -->
+  
+  <UsingTask TaskName="CssCompressorTask" AssemblyFile="Yahoo.Yui.Compressor.Build.MsBuild.dll" />
+
+  <Target Name="ConcatenateAndMinifyJavaScriptFiles">
+
+    <ItemGroup>
+      <!-- Define which CSS files to include in the concatenated/minified file, the will be combined in this order -->
+      <CssFiles Include="$(ProjectDir)..\Static\css\bootstrap.css"/>
+      <CssFiles Include="$(ProjectDir)..\Static\css\bootstrap-responsive.css"/>
+      <CssFiles Include="$(ProjectDir)..\Static\css\media.css"/>
+      <CssFiles Include="$(ProjectDir)..\Static\css\style.css"/>
+      <CssFiles Include="$(ProjectDir)..\Static\css\editmode.css"/>
+    </ItemGroup>
+
+    <CssCompressorTask
+        SourceFiles="@(CssFiles)"
+        CompressionType="None"
+        EncodingType="utf-8"
+        DeleteSourceFiles="False"
+        LineBreakPosition="0"
+        OutputFile="$(ProjectDir)..\Static\css\combined.css" />
+
+    <CssCompressorTask
+        SourceFiles="@(CssFiles)"
+        CompressionType="Standard"
+        EncodingType="utf-8"
+        DeleteSourceFiles="False"
+        LineBreakPosition="0"
+        OutputFile="$(ProjectDir)..\Static\css\combined.min.css" />
+
+  </Target>
+
+</Project>

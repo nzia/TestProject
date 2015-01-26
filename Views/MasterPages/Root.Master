@@ -1,0 +1,27 @@
+﻿<%@ Master Language="C#" AutoEventWireup="false" CodeBehind="Root.master.cs" Inherits="EPiServer.Templates.Alloy.Views.MasterPages.Root" %>
+
+<!DOCTYPE html>
+<html lang="<%= CurrentPage.LanguageBranch %>">
+    
+    <head runat="server">
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=10" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title><%= CurrentPage.MetaTitle %></title>
+        <Alloy:StylesheetLink Href="~/Static/css/combined.css" runat="server" />
+        <Alloy:ScriptLink Src="~/Static/js/combined.js" runat="server" />
+        <EPiServer:RequiredClientResources RenderingArea="Header" ID="RequiredResourcesHeader" runat="server" />
+    </head>
+
+    <body>
+        <form runat="server">
+            <EPiServer:FullRefreshPropertiesMetaData runat="server" />
+            <div class="container">
+                <asp:ContentPlaceHolder ID="Content" runat="server" />
+            </div>
+        </form>
+
+        <EPiServer:RequiredClientResources RenderingArea="Footer" ID="RequiredResourcesFooter" runat="server" />
+
+    </body>
+</html>

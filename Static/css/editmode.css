@@ -1,0 +1,58 @@
+﻿/* CSS specific to edit mode, such as help content displayed to the editor */
+
+h2 {EditMenuName:Header 2;}
+h3 {EditMenuName:Header 3;}
+
+/*Block Preview*/
+
+.alert-info 
+{
+    border-color: #B8C0C5;
+    color: black;
+    font-family: Verdana;
+    font-size: 1em;
+    font-style: italic;
+    background-color: #B8C0C5;
+    shadow: 5px #000;
+    box-shadow: 3px 3px 5px #CCC;
+    background-image: url(http://fn-head:17000/EPiServer/Shell/1.0.371/ClientResources/epi/themes/sleek/epi/images/intermediatebgPattern.png);
+    text-align: center;
+    }
+    
+block placeholder:
+.border {
+	background-color: #f2f2f2;
+}
+    
+    
+/*    
+.alert-info {
+    background-color: #FFF8AA;
+    border-color: #858585;
+    color: #000000;
+    font-family: Verdana;
+    font-size: 12px;
+}
+
+.alert-info 
+{
+    border-color: #B8C0C5;
+    color: black;
+    font-family: Verdana;
+    font-size: 12px;
+    margin-left: -1000px;
+    margin-right: -1000px;
+    padding-left: 1000px;
+    padding-right: 1000px;
+    font-style: italic;
+    background-color: #B8C0C5;
+    shadow: 5px #000;
+    box-shadow: 3px 3px 5px #CCC;
+    background-image: url(http://fn-head:17000/EPiServer/Shell/1.0.371/ClientResources/epi/themes/sleek/epi/images/intermediatebgPattern.png);
+    text-align: center;    
+    }
+*/
+.header.dim {
+    margin: 2% 0;
+    opacity: 0.3;
+}

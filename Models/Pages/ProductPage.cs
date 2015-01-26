@@ -1,0 +1,33 @@
+﻿using System.ComponentModel.DataAnnotations;
+using EPiServer.Core;
+using EPiServer.DataAbstraction;
+using EPiServer.DataAbstraction.PageTypeAvailability;
+using EPiServer.DataAnnotations;
+using EPiServer.Templates.Alloy.Models.Properties;
+
+namespace EPiServer.Templates.Alloy.Models.Pages
+{
+    /// <summary>
+    /// Used to present a single product
+    /// </summary>
+    [SiteContentType(
+        GUID = "17583DCD-3C11-49DD-A66D-0DEF0DD601FC",
+        GroupName = Global.GroupNames.Products)]
+    [SiteImageUrl(Global.StaticGraphicsFolderPath + "page-type-thumbnail-product.png")]
+    [AvailablePageTypes( 
+        Availability = Availability.Specific,
+        IncludeOn = new[] { typeof(StartPage) })]
+    public class ProductPage : StandardPage
+    {
+        [Required]
+        [BackingType(typeof(PropertyStringList))]
+        [Display(Order = 305)]
+        public virtual string[] UniqueSellingPoints { get; set; }
+
+        [Display(
+            GroupName = SystemTabNames.Content,
+            Order = 330)]
+        [CultureSpecific]
+        public virtual ContentArea RelatedContentArea { get; set; }
+    }
+}

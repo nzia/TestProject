@@ -1,0 +1,708 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A0A573D2-9552-4C0B-9B98-8895CF417511}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EPiServer.Templates.Alloy</RootNamespace>
+    <AssemblyName>EPiServer.Templates.Alloy</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ReferencePath Condition="'$(ReferencePath)' == ''">[Libraries]\EPiServer</ReferencePath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EPiServer, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.ApplicationModules, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.BaseLibrary, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Configuration, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Data, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Framework, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Implementation, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Shell, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Web.WebControls, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.XForms, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20505.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20505.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20505.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20505.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20505.0\lib\net40\System.Web.Http.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20505.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20505.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20505.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20505.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20505.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20505.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\Channels\DisplayResolutionBase.cs" />
+    <Compile Include="Business\Channels\DisplayResolutions.cs" />
+    <Compile Include="Business\Channels\MobileChannel.cs" />
+    <Compile Include="Business\Channels\WebChannel.cs" />
+    <Compile Include="Business\Core\CategorizableExtensions.cs" />
+    <Compile Include="Business\ContentProviders\ClonedContentProvider.cs" />
+    <Compile Include="Business\Core\ContentExtensions.cs" />
+    <Compile Include="Business\Core\ContentReferenceExtensions.cs" />
+    <Compile Include="Business\Core\PageDataCollectionExtensions.cs" />
+    <Compile Include="Business\Core\PageTypeExtensions.cs" />
+    <Compile Include="Business\EditorDescriptors\ContactPageSelectionFactory.cs" />
+    <Compile Include="Business\EditorDescriptors\ContactPageSelector.cs" />
+    <Compile Include="Business\EditorDescriptors\SiteLogotypeBlockEditorDescriptor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Business\EditorDescriptors\StringList.cs" />
+    <Compile Include="Business\Core\PageDataExtensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Business\Initialization\ClassFactoryInitialization.cs" />
+    <Compile Include="Business\Initialization\GlobalNewsContentProviderInitialization.cs" />
+    <Compile Include="Business\Core\SiteDataFactory.cs" />
+    <Compile Include="Business\WebControls\BlockControlExtensions.cs" />
+    <Compile Include="Business\WebControls\ContactDetailsByPageReference.cs" />
+    <Compile Include="Business\WebControls\GenericIBlockControlWrapper.cs" />
+    <Compile Include="Business\WebControls\IBlockControl.cs" />
+    <Compile Include="Business\WebControls\ScriptLink.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Business\WebControls\SitePropertyContentAreaControl.cs" />
+    <Compile Include="Business\WebControls\StylesheetLink.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Business\WebControls\TemplateHint.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Blocks\ContactBlock.cs" />
+    <Compile Include="Models\Blocks\ButtonBlock.cs" />
+    <Compile Include="Models\Blocks\EditorialBlock.cs" />
+    <Compile Include="Models\Blocks\FormBlock.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Blocks\JumbotronBlock.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Blocks\PageListBlock.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Blocks\SiteBlockData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Blocks\SiteLogotypeBlock.cs" />
+    <Compile Include="Models\Blocks\TeaserBlock.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Blocks\VideoBlock.cs" />
+    <Compile Include="Models\Pages\ArticlePage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Pages\ContactPage.cs" />
+    <Compile Include="Models\Pages\ContainerPage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Pages\LandingPage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Pages\NewsPage.cs" />
+    <Compile Include="Models\Pages\ProductPage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Pages\SearchPage.cs" />
+    <Compile Include="Models\Pages\SitePageData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Pages\StandardPage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Pages\StartPage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Properties\PropertyStringList.cs" />
+    <Compile Include="Models\SiteContentType.cs" />
+    <Compile Include="Models\SiteImageUrl.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Blocks\BlockPreview.aspx.cs">
+      <DependentUpon>BlockPreview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Blocks\BlockPreview.aspx.designer.cs">
+      <DependentUpon>BlockPreview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Blocks\ContactBlockControl.ascx.cs">
+      <DependentUpon>ContactBlockControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Blocks\ContactBlockControl.ascx.designer.cs">
+      <DependentUpon>ContactBlockControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Blocks\ButtonBlockControl.ascx.cs">
+      <DependentUpon>ButtonBlockControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Blocks\ButtonBlockControl.ascx.designer.cs">
+      <DependentUpon>ButtonBlockControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Blocks\DefaultBlockControl.ascx.cs">
+      <DependentUpon>DefaultBlockControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Blocks\DefaultBlockControl.ascx.designer.cs">
+      <DependentUpon>DefaultBlockControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Blocks\EditorialBlockControl.ascx.cs">
+      <DependentUpon>EditorialBlockControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Blocks\EditorialBlockControl.ascx.designer.cs">
+      <DependentUpon>EditorialBlockControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Blocks\FormBlockControl.ascx.cs">
+      <DependentUpon>FormBlockControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Blocks\FormBlockControl.ascx.designer.cs">
+      <DependentUpon>FormBlockControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Blocks\JumbotronBlockControl.ascx.cs">
+      <DependentUpon>JumbotronBlockControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Blocks\JumbotronBlockControl.ascx.designer.cs">
+      <DependentUpon>JumbotronBlockControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Blocks\PageListBlockControl.ascx.cs">
+      <DependentUpon>PageListBlockControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Blocks\PageListBlockControl.ascx.designer.cs">
+      <DependentUpon>PageListBlockControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Blocks\SiteBlockControlBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Blocks\SiteLogotypeBlockControl.ascx.cs">
+      <DependentUpon>SiteLogotypeBlockControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Blocks\SiteLogotypeBlockControl.ascx.designer.cs">
+      <DependentUpon>SiteLogotypeBlockControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Blocks\TeaserBlockControl.ascx.cs">
+      <DependentUpon>TeaserBlockControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Blocks\TeaserBlockControl.ascx.designer.cs">
+      <DependentUpon>TeaserBlockControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Blocks\VideoBlockControl.ascx.cs">
+      <DependentUpon>VideoBlockControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Blocks\VideoBlockControl.ascx.designer.cs">
+      <DependentUpon>VideoBlockControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MasterPages\LeftNavigation.master.cs">
+      <DependentUpon>LeftNavigation.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\MasterPages\LeftNavigation.master.designer.cs">
+      <DependentUpon>LeftNavigation.master</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MasterPages\Root.Master.cs">
+      <DependentUpon>Root.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\MasterPages\Root.Master.designer.cs">
+      <DependentUpon>Root.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MasterPages\Site.master.cs">
+      <DependentUpon>Site.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\MasterPages\Site.master.designer.cs">
+      <DependentUpon>Site.master</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MasterPages\SiteMasterPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\MasterPages\TwoPlusOne.master.cs">
+      <DependentUpon>TwoPlusOne.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\MasterPages\TwoPlusOne.master.designer.cs">
+      <DependentUpon>TwoPlusOne.master</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\LandingPageTemplate.aspx.cs">
+      <DependentUpon>LandingPageTemplate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Pages\LandingPageTemplate.aspx.designer.cs">
+      <DependentUpon>LandingPageTemplate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\NewsPageTemplate.aspx.cs">
+      <DependentUpon>NewsPageTemplate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Pages\NewsPageTemplate.aspx.designer.cs">
+      <DependentUpon>NewsPageTemplate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Partials\ContactPagePartialTemplate.ascx.cs">
+      <DependentUpon>ContactPagePartialTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Pages\Partials\ContactPagePartialTemplate.ascx.designer.cs">
+      <DependentUpon>ContactPagePartialTemplate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Partials\PartialPageTemplate.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Pages\Partials\PagePartialTemplate.ascx.cs">
+      <DependentUpon>PagePartialTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Pages\Partials\PagePartialTemplate.ascx.designer.cs">
+      <DependentUpon>PagePartialTemplate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ProductPageTemplate.aspx.cs">
+      <DependentUpon>ProductPageTemplate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Pages\ProductPageTemplate.aspx.designer.cs">
+      <DependentUpon>ProductPageTemplate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\SearchPageTemplate.aspx.cs">
+      <DependentUpon>SearchPageTemplate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Pages\SearchPageTemplate.aspx.designer.cs">
+      <DependentUpon>SearchPageTemplate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\SiteTemplatePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Pages\StandardPageTemplate.aspx.cs">
+      <DependentUpon>StandardPageTemplate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Pages\StandardPageTemplate.aspx.designer.cs">
+      <DependentUpon>StandardPageTemplate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\StartPageTemplate.aspx.cs">
+      <DependentUpon>StartPageTemplate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Pages\StartPageTemplate.aspx.designer.cs">
+      <DependentUpon>StartPageTemplate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Properties\ContactDetailsByPageReference.ascx.cs">
+      <DependentUpon>ContactDetailsByPageReference.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Properties\ContactDetailsByPageReference.ascx.designer.cs">
+      <DependentUpon>ContactDetailsByPageReference.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Properties\StringList.ascx.cs">
+      <DependentUpon>StringList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Properties\StringList.ascx.designer.cs">
+      <DependentUpon>StringList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\Breadcrumb.ascx.cs">
+      <DependentUpon>Breadcrumb.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Shared\Breadcrumb.ascx.designer.cs">
+      <DependentUpon>Breadcrumb.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\Footer.ascx.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Shared\Footer.ascx.designer.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\MainNavigation.ascx.cs">
+      <DependentUpon>MainNavigation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Shared\MainNavigation.ascx.designer.cs">
+      <DependentUpon>MainNavigation.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\PageList.ascx.cs">
+      <DependentUpon>PageList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Shared\PageList.ascx.designer.cs">
+      <DependentUpon>PageList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\SiteUserControlBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Shared\SubNavigation.ascx.cs">
+      <DependentUpon>SubNavigation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Shared\SubNavigation.ascx.designer.cs">
+      <DependentUpon>SubNavigation.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Business\Core\_ReadMe.txt" />
+    <Content Include="ClientResources\Scripts\Editors\StringList.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Resources\LanguageFiles\EditorHints.xml" />
+    <Content Include="Resources\LanguageFiles\Views.xml" />
+    <Content Include="Resources\LanguageFiles\GroupNames.xml" />
+    <Content Include="Resources\LanguageFiles\Channels.xml" />
+    <Content Include="Resources\LanguageFiles\ContentTypeNames.xml" />
+    <Content Include="Resources\LanguageFiles\PropertyNames.xml" />
+    <Content Include="Static\css\editmode.css" />
+    <Content Include="Static\gfx\page-type-thumbnail-article.png" />
+    <Content Include="Static\gfx\page-type-thumbnail-contact.png" />
+    <Content Include="Static\gfx\page-type-thumbnail-product.png" />
+    <Content Include="Static\gfx\page-type-thumbnail-standard.png" />
+    <Content Include="Static\gfx\page-type-thumbnail.png" />
+    <Content Include="Static\gfx\searchbuttonsmall.png" />
+    <Content Include="Static\jwplayer\jwplayer.js" />
+    <Content Include="Static\jwplayer\player.swf" />
+    <Content Include="Static\jwplayer\preview.jpg" />
+    <Content Include="Static\jwplayer\video.mp4" />
+    <Content Include="Views\Blocks\BlockPreview.aspx" />
+    <Content Include="Views\Blocks\ButtonBlockControl.ascx" />
+    <Content Include="Views\Blocks\DefaultBlockControl.ascx" />
+    <Content Include="Views\Blocks\EditorialBlockControl.ascx" />
+    <Content Include="Views\Blocks\FormBlockControl.ascx" />
+    <Content Include="Views\Blocks\SiteLogotypeBlockControl.ascx" />
+    <Content Include="Views\Blocks\VideoBlockControl.ascx" />
+    <Content Include="Views\MasterPages\Site.master" />
+    <Content Include="App_Browsers\AdapterMappings.browser" />
+    <Content Include="App_Browsers\IE6.browser" />
+    <Content Include="Views\MasterPages\Root.Master" />
+    <Content Include="module.config" />
+    <None Include="Web.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="episerver.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EPiServerFramework.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="connectionStrings.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.config.ReadMe.txt" />
+    <None Include="Models\Blocks\_ReadMe.txt" />
+    <None Include="Models\Pages\_ReadMe.txt" />
+    <None Include="Resources\LanguageFiles\_ReadMe.txt" />
+    <Content Include="Static\css\bootstrap-collapse.js" />
+    <Content Include="Static\css\bootstrap-responsive.css" />
+    <Content Include="Static\css\bootstrap-responsive.min.css" />
+    <Content Include="Static\css\bootstrap.css" />
+    <Content Include="Static\css\bootstrap.min.css" />
+    <Content Include="Static\css\editor.css" />
+    <Content Include="Static\css\media.css" />
+    <Content Include="Static\css\style.css" />
+    <Content Include="Static\fancyapps-fancyBox-3a66a9b\demo\1_b.jpg" />
+    <Content Include="Static\fancyapps-fancyBox-3a66a9b\demo\1_s.jpg" />
+    <Content Include="Static\fancyapps-fancyBox-3a66a9b\demo\2_b.jpg" />
+    <Content Include="Static\fancyapps-fancyBox-3a66a9b\demo\2_s.jpg" />
+    <Content Include="Static\fancyapps-fancyBox-3a66a9b\demo\3_b.jpg" />
+    <Content Include="Static\fancyapps-fancyBox-3a66a9b\demo\3_s.jpg" />
+    <Content Include="Static\fancyapps-fancyBox-3a66a9b\demo\4_b.jpg" />
+    <Content Include="Static\fancyapps-fancyBox-3a66a9b\demo\4_s.jpg" />
+    <Content Include="Static\fancyapps-fancyBox-3a66a9b\demo\5_b.jpg" />
+    <Content Include="Static\fancyapps-fancyBox-3a66a9b\demo\5_s.jpg" />
+    <Content Include="Static\fancyapps-fancyBox-3a66a9b\demo\ajax.txt" />
+    <Content Include="Static\fancyapps-fancyBox-3a66a9b\demo\iframe.html" />
+    <Content Include="Static\fancyapps-fancyBox-3a66a9b\demo\index.html" />
+    <Content Include="Static\fancyapps-fancyBox-3a66a9b\lib\jquery-1.7.2.min.js" />
+    <Content Include="Static\fancyapps-fancyBox-3a66a9b\lib\jquery.mousewheel-3.0.6.pack.js" />
+    <Content Include="Static\fancyapps-fancyBox-3a66a9b\source\blank.gif" />
+    <Content Include="Static\fancyapps-fancyBox-3a66a9b\source\fancybox_loading.gif" />
+    <Content Include="Static\fancyapps-fancyBox-3a66a9b\source\fancybox_sprite.png" />
+    <Content Include="Static\fancyapps-fancyBox-3a66a9b\source\helpers\fancybox_buttons.png" />
+    <Content Include="Static\fancyapps-fancyBox-3a66a9b\source\helpers\jquery.fancybox-buttons.css" />
+    <Content Include="Static\fancyapps-fancyBox-3a66a9b\source\helpers\jquery.fancybox-buttons.js" />
+    <Content Include="Static\fancyapps-fancyBox-3a66a9b\source\helpers\jquery.fancybox-media.js" />
+    <Content Include="Static\fancyapps-fancyBox-3a66a9b\source\helpers\jquery.fancybox-thumbs.css" />
+    <Content Include="Static\fancyapps-fancyBox-3a66a9b\source\helpers\jquery.fancybox-thumbs.js" />
+    <Content Include="Static\fancyapps-fancyBox-3a66a9b\source\jquery.fancybox.css" />
+    <Content Include="Static\fancyapps-fancyBox-3a66a9b\source\jquery.fancybox.js" />
+    <Content Include="Static\fancyapps-fancyBox-3a66a9b\source\jquery.fancybox.pack.js" />
+    <Content Include="Static\gfx\carouselbackground.png" />
+    <Content Include="Static\gfx\contact.jpg" />
+    <Content Include="Static\gfx\exampelspan4.png" />
+    <Content Include="Static\gfx\experts.png" />
+    <Content Include="Static\gfx\fallows-media-wide.jpg" />
+    <Content Include="Static\gfx\leader.png" />
+    <Content Include="Static\gfx\leader2.png" />
+    <Content Include="Static\gfx\logotype.png" />
+    <Content Include="Static\gfx\meet.jpg" />
+    <Content Include="Static\gfx\New_FDT_Press_Contact_.JPG" />
+    <Content Include="Static\gfx\person.png" />
+    <Content Include="Static\gfx\plan.jpg" />
+    <Content Include="Static\gfx\play.png" />
+    <Content Include="Static\gfx\playInactive.png" />
+    <Content Include="Static\gfx\productLandingv2.png" />
+    <Content Include="Static\gfx\searchbutton.png" />
+    <Content Include="Static\gfx\track.jpg" />
+    <Content Include="Static\html\error.htm" />
+    <Content Include="Static\img\glyphicons-halflings-white.png" />
+    <Content Include="Static\img\glyphicons-halflings.png" />
+    <Content Include="Static\js\bootstrap.js" />
+    <Content Include="Static\js\jquery.js" />
+    <Content Include="Static\js\site.js" />
+    <Content Include="Static\lightbox\css\jquery.lightbox-0.5.css" />
+    <Content Include="Static\lightbox\images\lightbox-blank.gif" />
+    <Content Include="Static\lightbox\images\lightbox-btn-close.gif" />
+    <Content Include="Static\lightbox\images\lightbox-btn-next.gif" />
+    <Content Include="Static\lightbox\images\lightbox-btn-prev.gif" />
+    <Content Include="Static\lightbox\images\lightbox-ico-loading.gif" />
+    <Content Include="Static\lightbox\index.htm" />
+    <Content Include="Static\lightbox\js\jquery.js" />
+    <Content Include="Static\lightbox\js\jquery.lightbox-0.5.js" />
+    <Content Include="Static\lightbox\js\jquery.lightbox-0.5.min.js" />
+    <Content Include="Static\lightbox\js\jquery.lightbox-0.5.pack.js" />
+    <Content Include="Static\lightbox\photos\image1.jpg" />
+    <Content Include="Static\lightbox\photos\image2.jpg" />
+    <Content Include="Static\lightbox\photos\image3.jpg" />
+    <Content Include="Static\lightbox\photos\image4.jpg" />
+    <Content Include="Static\lightbox\photos\image5.jpg" />
+    <Content Include="Static\lightbox\photos\thumb_image1.jpg" />
+    <Content Include="Static\lightbox\photos\thumb_image2.jpg" />
+    <Content Include="Static\lightbox\photos\thumb_image3.jpg" />
+    <Content Include="Static\lightbox\photos\thumb_image4.jpg" />
+    <Content Include="Static\lightbox\photos\thumb_image5.jpg" />
+    <Content Include="Views\Blocks\ContactBlockControl.ascx" />
+    <Content Include="Views\Blocks\JumbotronBlockControl.ascx" />
+    <Content Include="Views\Blocks\PageListBlockControl.ascx" />
+    <Content Include="Views\Blocks\TeaserBlockControl.ascx" />
+    <Content Include="Views\MasterPages\LeftNavigation.master" />
+    <Content Include="Views\Pages\LandingPageTemplate.aspx" />
+    <Content Include="Views\Pages\NewsPageTemplate.aspx" />
+    <Content Include="Views\Pages\Partials\ContactPagePartialTemplate.ascx" />
+    <Content Include="Views\Pages\Partials\PagePartialTemplate.ascx" />
+    <Content Include="Views\Pages\ProductPageTemplate.aspx" />
+    <Content Include="Views\Pages\SearchPageTemplate.aspx" />
+    <Content Include="Views\Pages\StandardPageTemplate.aspx" />
+    <Content Include="Views\Pages\StartPageTemplate.aspx" />
+    <Content Include="Views\Shared\Breadcrumb.ascx" />
+    <Content Include="Views\Properties\ContactDetailsByPageReference.ascx" />
+    <Content Include="Views\Properties\StringList.ascx" />
+    <Content Include="Views\Shared\Footer.ascx" />
+    <Content Include="Views\Shared\MainNavigation.ascx" />
+    <Content Include="Views\Shared\PageList.ascx" />
+    <Content Include="Views\Shared\SubNavigation.ascx" />
+    <None Include="[Configuration]\Debug\connectionStrings.Debug.config" />
+    <None Include="[Configuration]\Debug\episerver.Debug.config" />
+    <None Include="[Configuration]\Debug\EPiServerFramework.Debug.config" />
+    <None Include="[Configuration]\Debug\EPiServerLog.Debug.config" />
+    <None Include="[Configuration]\Debug\FileSummary.Debug.config" />
+    <None Include="[Configuration]\Debug\Web.Debug.config" />
+    <None Include="[Configuration]\EPiServer\ConnectionStrings.config" />
+    <None Include="[Configuration]\EPiServer\episerver.config" />
+    <None Include="[Configuration]\EPiServer\EPiServerFramework.config" />
+    <None Include="[Configuration]\EPiServer\EPiServerLog.config" />
+    <None Include="[Configuration]\EPiServer\FileSummary.config" />
+    <None Include="[Configuration]\EPiServer\Web.config" />
+    <Content Include="Views\MasterPages\TwoPlusOne.master" />
+    <None Include="Static\fancyapps-fancyBox-3a66a9b\CHANGELOG.md" />
+    <None Include="Static\fancyapps-fancyBox-3a66a9b\README.md" />
+    <None Include="Views\MasterPages\_ReadMe.txt" />
+    <None Include="Views\Pages\Partials\_ReadMe.txt" />
+    <None Include="Views\Shared\_ReadMe.txt" />
+    <None Include="[Configuration]\EPiServer\_ReadMe.txt" />
+    <None Include="[Configuration]\Common\_ReadMe.txt" />
+    <None Include="[Configuration]\Release\Web.Release.config" />
+    <None Include="[MSBuild]\BuildSpecificConfigTransforms.xml" />
+    <None Include="[Libraries]\_ReadMe.txt" />
+    <None Include="[MSBuild]\CommonConfigTransforms.xml" />
+    <None Include="[MSBuild]\DeleteTempConfigFiles.xml" />
+    <None Include="[Libraries]\EPiServer\_ReadMe.txt" />
+    <None Include="[MSBuild]\EcmaScript.NET.dll" />
+    <None Include="[MSBuild]\Iesi.Collections.dll" />
+    <None Include="[MSBuild]\Scripts.xml" />
+    <None Include="[MSBuild]\Stylesheets.xml" />
+    <None Include="[MSBuild]\Yahoo.Yui.Compressor.Build.MsBuild.dll" />
+    <None Include="[MSBuild]\Yahoo.Yui.Compressor.dll" />
+    <None Include="[MSBuild]\_ReadMe.txt" />
+    <None Include="[Configuration]\Common\connectionStrings.Common.config" />
+    <None Include="[Configuration]\Common\episerver.Common.config" />
+    <None Include="[Configuration]\Common\EPiServerFramework.Common.config" />
+    <None Include="[Configuration]\Common\EPiServerLog.Common.config" />
+    <None Include="[Configuration]\Common\FileSummary.Common.config" />
+    <None Include="[Configuration]\Common\Web.Common.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="[Configuration]\Debug\_ReadMe.txt" />
+    <None Include="[Configuration]\Release\_ReadMe.txt" />
+    <None Include="[Configuration]\_ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Business\ScheduledJobs\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SlowCheetahTargets Condition=" '$(SlowCheetahTargets)'=='' ">$(LOCALAPPDATA)\Microsoft\MSBuild\SlowCheetah\v1\SlowCheetah.Transforms.targets</SlowCheetahTargets>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <UseIIS>True</UseIIS>
+          <IISUrl>http://pc1:17001/</IISUrl>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SlowCheetahTargets)" Condition="Exists('$(SlowCheetahTargets)')" />
+  <PropertyGroup>
+    <PostBuildEvent>$(MSBuildBinPath)\msbuild.exe "$(ProjectDir)[MSBuild]\CommonConfigTransforms.xml"
+$(MSBuildBinPath)\msbuild.exe "$(ProjectDir)[MSBuild]\BuildSpecificConfigTransforms.xml" /p:Configuration=$(ConfigurationName)
+$(MSBuildBinPath)\msbuild.exe "$(ProjectDir)[MSBuild]\DeleteTempConfigFiles.xml"
+$(MSBuildBinPath)\msbuild.exe "$(ProjectDir)[MSBuild]\Scripts.xml"
+$(MSBuildBinPath)\msbuild.exe "$(ProjectDir)[MSBuild]\Stylesheets.xml"
+copy "$(ProjectDir)[Libraries]\EPiServer\*.dll" "$(TargetDir)" /y</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets. -->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>

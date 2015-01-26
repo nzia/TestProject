@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<languages>
+  
+  <language name="English" id="en">
+
+    <blocks>
+
+      <buttonblockcontrol>
+        <buttondefaulttext>
+          Button Text
+        </buttondefaulttext>
+      </buttonblockcontrol>
+
+      <defaultblockcontrol>
+        <message>
+          This block type does not have a renderer for this type of content area.
+        </message>
+      </defaultblockcontrol>
+      
+      <pagelistblockcontrol>
+        <help>
+          <heading>
+            Page List
+          </heading>
+          <description>
+            This block will be invisible if the list does not contain any pages. Edit this block in form mode to set page list settings.
+          </description>
+        </help>
+      </pagelistblockcontrol>  
+      
+    </blocks>   
+    
+  </language>
+  
+</languages>

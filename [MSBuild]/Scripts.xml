@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/MsBuild/2003">
+
+  <!-- Minifies and/or concatenates JavaScript files into one single file -->
+  
+  <UsingTask TaskName="JavaScriptCompressorTask" AssemblyFile="Yahoo.Yui.Compressor.Build.MsBuild.dll" />
+
+  <Target Name="ConcatenateAndMinifyJavaScriptFiles">
+    
+    <ItemGroup>
+      <!-- Define which JavaScript files to include in the concatenated/minified file -->
+      <JavaScriptFiles Include="$(ProjectDir)..\Static\js\jquery.js"/><!-- jquery.js can be removed and linked from CDN instead, we use a local one for demo purposes without internet connection -->
+      <JavaScriptFiles Include="$(ProjectDir)..\Static\js\bootstrap.js"/>
+      <JavaScriptFiles Include="$(ProjectDir)..\Static\js\site.js"/>
+    </ItemGroup>
+
+    <JavaScriptCompressorTask
+        SourceFiles="@(JavaScriptFiles)"
+        CompressionType="None"
+        ObfuscateJavaScript="False"
+        PreserveAllSemicolons="True"
+        DisableOptimizations="False"
+        EncodingType="utf-8"
+        DeleteSourceFiles="False"
+        LineBreakPosition="0"
+        OutputFile="$(ProjectDir)..\Static\js\combined.js"
+        ThreadCulture="en-us"
+        IsEvalIgnored="false" />
+
+    <JavaScriptCompressorTask
+        SourceFiles="@(JavaScriptFiles)"
+        CompressionType="Standard"
+        ObfuscateJavaScript="True"
+        PreserveAllSemicolons="False"
+        DisableOptimizations="False"
+        EncodingType="utf-8" 
+        DeleteSourceFiles="False"
+        LineBreakPosition="-1"
+        OutputFile="$(ProjectDir)..\Static\js\combined.min.js"
+        ThreadCulture="en-us"
+        IsEvalIgnored="false" />
+  </Target>
+
+</Project>
